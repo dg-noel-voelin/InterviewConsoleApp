@@ -8,6 +8,8 @@ public class Exercise
     {
         Products = ProductLoader.LoadProductsFromEmbeddedResource();
 
+        // Write your Code Here.
+        
         foreach (var product in Products)
         {
             Console.WriteLine(product.ToString());
