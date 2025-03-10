@@ -25,6 +25,8 @@ public static class ProductLoader
         using var reader = new StreamReader(stream);
         string jsonString = reader.ReadToEnd();
 
-        return JsonSerializer.Deserialize<List<Product>>(jsonString, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new List<Product>();
+        var list = JsonSerializer.Deserialize<List<Product>>(jsonString, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new List<Product>();
+        var random = new Random();
+        return list.OrderBy(_ => random.Next()).ToList();
     }
 }
